@@ -36,6 +36,8 @@ executable aural-maze
         ${scherzo-core},
         ${scherzo-lilypond},
         ${base},
+        ${mtl},
+        ${random},
         ${text},
 
     hs-source-dirs: src
