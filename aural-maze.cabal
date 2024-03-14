@@ -89,3 +89,5 @@ executable aural-maze
     hs-source-dirs: src
     main-is: Main.hs
     other-modules:
+        RandomMusic.Parameters
+
