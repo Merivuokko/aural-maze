@@ -45,3 +45,4 @@ executable aural-maze
     other-modules:
         RandomMusic.Generator
         RandomMusic.Parameters
+        Temperament.Equal12

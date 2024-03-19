@@ -15,12 +15,12 @@ module RandomMusic.Generator (
 import Control.Monad (replicateM)
 import Control.Monad.Reader
 import Control.Monad.State.Strict
-import Data.Bool (bool)
 import System.Random
 
 import RandomMusic.Parameters
 import Scherzo.Music.Elementary
 import Scherzo.Music.Expr
+import Temperament.Equal12
 
 -- | Generate a music expression with given parameters and random number generator
 generateMusic :: MusicParams -> StdGen -> MusicExpr
@@ -92,47 +92,3 @@ genNotePitch = do
     -- representation. In case we hit either the minimum or maximum possible value, or value close to them, the returned value may be enharmonically incorrect.
     useSharp <- withRng uniform
     pure $! numberToNotePitch noteNum useSharp
-
-notePitchToNumber :: NotePitch -> Int
-notePitchToNumber note = note.octave * 12 + pitchNum note.name + altNum note.alteration
-  where
-    altNum :: Alteration -> Int
-    altNum = \case
-        DoubleFlat -> -2
-        Flat -> -1
-        Natural -> 0
-        Sharp -> 1
-        DoubleSharp -> 2
-
-    pitchNum :: PitchName -> Int
-    pitchNum = \case
-        C -> 0
-        D -> 2
-        E -> 4
-        F -> 5
-        G -> 7
-        A -> 9
-        B -> 11
-
-numberToNotePitch :: Int -> Bool -> NotePitch
-numberToNotePitch num useSharp =
-    let octave = num `div` 12
-        pitchClass = num `mod` 12
-        (name, alteration) = pitchAndAlt pitchClass
-    in  NotePitch {..}
-  where
-    pitchAndAlt :: Int -> (PitchName, Alteration)
-    pitchAndAlt = \case
-        0 -> (C, Natural)
-        1 -> bool (D, Flat) (C, Sharp) useSharp
-        2 -> (D, Natural)
-        3 -> bool (E, Flat) (D, Sharp) useSharp
-        4 -> (E, Natural)
-        5 -> (F, Natural)
-        6 -> bool (G, Flat) (F, Sharp) useSharp
-        7 -> (G, Natural)
-        8 -> bool (A, Flat) (G, Sharp) useSharp
-        9 -> (A, Natural)
-        10 -> bool (B, Flat) (A, Sharp) useSharp
-        11 -> (B, Natural)
-        _ -> error $! "Impossible: bad note number"
