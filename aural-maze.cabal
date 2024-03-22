@@ -19,6 +19,9 @@ maintainer: kaura.dev@sange.fi
 copyright: Copyright 2024 Aura Kelloniemi
 tested-with: GHC == { 9.8.2 }
 
+extra-files:
+    CHANGELOG.md
+
 source-repository head
     type: git
     location: https://github.com/Merivuokko/aural-maze
