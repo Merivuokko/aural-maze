@@ -60,6 +60,7 @@ executable aural-maze
         ${scherzo-core},
         ${scherzo-lilypond},
         ${base},
+        ${hint},
         ${lambdasound},
         ${random},
         ${text},
