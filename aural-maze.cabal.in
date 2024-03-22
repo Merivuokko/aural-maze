@@ -36,6 +36,7 @@ executable aural-maze
         ${scherzo-core},
         ${scherzo-lilypond},
         ${base},
+        ${lambdasound},
         ${mtl},
         ${random},
         ${text},

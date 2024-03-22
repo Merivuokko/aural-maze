@@ -84,6 +84,7 @@ executable aural-maze
         scherzo-core ==0.1.0.0,
         scherzo-lilypond ==0.1.0.0,
         base >=4.18 && <4.20,
+        lambdasound ^>=1.2.0,
         mtl ^>=2.3,
         random ^>=1.2.1.2,
         text >=2.0 && <2.2,
