@@ -6,5 +6,5 @@ mtl ^>=2.3
 random ^>=1.2.1.2
 text >=2.0 && <2.2
 
-scherzo-core ==0.1.0.0
-scherzo-lilypond ==0.1.0.0
+scherzo-core ==0.0.0.1
+scherzo-lilypond ==0.0.0.1
