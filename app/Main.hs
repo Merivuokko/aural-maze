@@ -12,12 +12,12 @@ import System.Random (initStdGen)
 
 import LambdaSound
 
-import RandomMusic.Generator
-import RandomMusic.Parameters
+import AuralMaze.RandomMusic.Generator
+import AuralMaze.RandomMusic.Parameters
+import AuralMaze.Synthesis.Generator
+import AuralMaze.Synthesis.Parameters
 import Scherzo.Format.LilyPond.Writer
 import Scherzo.Music.Elementary
-import Synthesis.Generator
-import Synthesis.Parameters
 
 main :: IO ()
 main = do

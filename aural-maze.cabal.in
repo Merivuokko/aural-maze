@@ -33,7 +33,7 @@ source-repository head
                       
 $(include-file cabal/common.inc)$
 
-executable aural-maze
+library
     import: options
     build-depends:
         ${scherzo-core},
@@ -43,13 +43,25 @@ executable aural-maze
         ${mtl},
         ${random},
         ${text},
+    hs-source-dirs: lib
+    exposed-modules:
+        AuralMaze.RandomMusic.Generator
+        AuralMaze.RandomMusic.Parameters
+        AuralMaze.Synthesis.Generator
+        AuralMaze.Synthesis.Instruments
+        AuralMaze.Synthesis.Parameters
+        AuralMaze.Temperament.Equal12
 
-    hs-source-dirs: src
+executable aural-maze
+    import: options
+
+    build-depends:
+        aural-maze,
+        ${scherzo-core},
+        ${scherzo-lilypond},
+        ${base},
+        ${lambdasound},
+        ${random},
+        ${text},
+    hs-source-dirs: app
     main-is: Main.hs
-    other-modules:
-        RandomMusic.Generator
-        RandomMusic.Parameters
-        Synthesis.Generator
-        Synthesis.Instruments
-        Synthesis.Parameters
-        Temperament.Equal12

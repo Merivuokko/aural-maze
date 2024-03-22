@@ -1,12 +1,12 @@
 -- |
--- Module      : Synthesis.Generator
+-- Module      : AuralMaze.Synthesis.Generator
 -- Description : Conversion from music expressions to audio signal
 -- Copyright   : Copyright (C) 2024 Aura Kelloniemi
 -- License     : GPL-3
 -- Maintainer  : kaura.dev@sange.fi
 -- Stability   : experimental
 -- Portability : GHC
-module Synthesis.Generator (
+module AuralMaze.Synthesis.Generator (
     generateSignal,
 ) where
 
@@ -14,11 +14,11 @@ import Control.Monad.Reader
 
 import LambdaSound
 
+import AuralMaze.Synthesis.Instruments
+import AuralMaze.Synthesis.Parameters
+import AuralMaze.Temperament.Equal12
 import Scherzo.Music.Elementary
 import Scherzo.Music.Expr
-import Synthesis.Instruments
-import Synthesis.Parameters
-import Temperament.Equal12
 
 -- | Generate audio signal froma music expression
 generateSignal

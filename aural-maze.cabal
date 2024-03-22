@@ -81,7 +81,7 @@ common options
     else
         ghc-options: -Wall -Wcompat
 
-executable aural-maze
+library
     import: options
     build-depends:
         scherzo-core ==0.0.0.1,
@@ -91,13 +91,25 @@ executable aural-maze
         mtl ^>=2.3,
         random ^>=1.2.1.2,
         text >=2.0 && <2.2,
+    hs-source-dirs: lib
+    exposed-modules:
+        AuralMaze.RandomMusic.Generator
+        AuralMaze.RandomMusic.Parameters
+        AuralMaze.Synthesis.Generator
+        AuralMaze.Synthesis.Instruments
+        AuralMaze.Synthesis.Parameters
+        AuralMaze.Temperament.Equal12
 
-    hs-source-dirs: src
+executable aural-maze
+    import: options
+
+    build-depends:
+        aural-maze,
+        scherzo-core ==0.0.0.1,
+        scherzo-lilypond ==0.0.0.1,
+        base >=4.18 && <4.20,
+        lambdasound ^>=1.2.0,
+        random ^>=1.2.1.2,
+        text >=2.0 && <2.2,
+    hs-source-dirs: app
     main-is: Main.hs
-    other-modules:
-        RandomMusic.Generator
-        RandomMusic.Parameters
-        Synthesis.Generator
-        Synthesis.Instruments
-        Synthesis.Parameters
-        Temperament.Equal12

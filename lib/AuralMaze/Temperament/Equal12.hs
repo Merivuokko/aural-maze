@@ -1,12 +1,12 @@
 -- |
--- Module      : Temperament.Equal12
+-- Module      : AuralMaze.Temperament.Equal12
 -- Description : Implementation of 12-tone equal temperament
 -- Copyright   : Copyright (C) 2024 Aura Kelloniemi
 -- License     : GPL-3
 -- Maintainer  : kaura.dev@sange.fi
 -- Stability   : experimental
 -- Portability : GHC
-module Temperament.Equal12 (
+module AuralMaze.Temperament.Equal12 (
     notePitchToNumber,
     numberToNotePitch,
     notePitchToFrequency,

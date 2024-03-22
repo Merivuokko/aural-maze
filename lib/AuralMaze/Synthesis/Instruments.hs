@@ -1,5 +1,5 @@
 -- |
--- Module      : Synthesis.Instruments
+-- Module      : AuralMaze.Synthesis.Instruments
 -- Description : Synthetic instrument definitions
 -- Copyright   : Copyright (C) 2024 Aura Kelloniemi
 -- License     : GPL-3
@@ -8,7 +8,7 @@
 -- Portability : GHC
 --
 -- This module defines synthetic instruments.
-module Synthesis.Instruments (
+module AuralMaze.Synthesis.Instruments (
     instrumentOne,
 ) where
 

@@ -1,12 +1,12 @@
 -- |
--- Module      : Synthesis.Parameters
+-- Module      : AuralMaze.Synthesis.Parameters
 -- Description : Audio synthesis parameters
 -- Copyright   : Copyright (C) 2024 Aura Kelloniemi
 -- License     : GPL-3
 -- Maintainer  : kaura.dev@sange.fi
 -- Stability   : experimental
 -- Portability : GHC
-module Synthesis.Parameters (
+module AuralMaze.Synthesis.Parameters (
     SynthParams (..),
 ) where
 

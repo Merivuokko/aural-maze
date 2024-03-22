@@ -1,14 +1,14 @@
 -- This module provides data structures for specifying parameters for random music generation.
 
 -- |
--- Module      : RandomMusic.Parameters
+-- Module      : AuralMaze.RandomMusic.Parameters
 -- Description : Random music generation parameters
 -- Copyright   : Copyright (C) 2024 Aura Kelloniemi
 -- License     : GPL-3
 -- Maintainer  : kaura.dev@sange.fi
 -- Stability   : experimental
 -- Portability : GHC
-module RandomMusic.Parameters (
+module AuralMaze.RandomMusic.Parameters (
     -- * Weighted values
     Weighted (..),
 

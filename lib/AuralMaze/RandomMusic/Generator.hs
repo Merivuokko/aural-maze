@@ -1,14 +1,14 @@
 -- This module provides utilities for generating random music based on parameters.
 
 -- |
--- Module      : RandomMusic.Generator
+-- Module      : AuralMaze.RandomMusic.Generator
 -- Description : Random music generator
 -- Copyright   : Copyright (C) 2023-2024 Aura Kelloniemi
 -- License     : GPL-3
 -- Maintainer  : kaura.dev@sange.fi
 -- Stability   : experimental
 -- Portability : GHC
-module RandomMusic.Generator (
+module AuralMaze.RandomMusic.Generator (
     generateMusic,
 ) where
 
@@ -17,10 +17,10 @@ import Control.Monad.Reader
 import Control.Monad.State.Strict
 import System.Random
 
-import RandomMusic.Parameters
+import AuralMaze.RandomMusic.Parameters
+import AuralMaze.Temperament.Equal12
 import Scherzo.Music.Elementary
 import Scherzo.Music.Expr
-import Temperament.Equal12
 
 -- | Generate a music expression with given parameters and random number generator
 generateMusic :: MusicParams -> StdGen -> MusicExpr
