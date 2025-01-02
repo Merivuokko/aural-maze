@@ -93,6 +93,7 @@ library
         text >=2.0 && <2.2,
     hs-source-dirs: lib
     exposed-modules:
+        AuralMaze.Config
         AuralMaze.RandomMusic.Generator
         AuralMaze.RandomMusic.Parameters
         AuralMaze.Synthesis.Generator

@@ -45,6 +45,7 @@ library
         ${text},
     hs-source-dirs: lib
     exposed-modules:
+        AuralMaze.Config
         AuralMaze.RandomMusic.Generator
         AuralMaze.RandomMusic.Parameters
         AuralMaze.Synthesis.Generator
