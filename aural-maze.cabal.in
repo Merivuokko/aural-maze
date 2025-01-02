@@ -58,7 +58,6 @@ executable aural-maze
 
     build-depends:
         aural-maze,
-        ${scherzo-core},
         ${scherzo-lilypond},
         ${base},
         ${hint},

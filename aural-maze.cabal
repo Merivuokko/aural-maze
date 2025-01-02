@@ -106,7 +106,6 @@ executable aural-maze
 
     build-depends:
         aural-maze,
-        scherzo-core ==0.0.0.1,
         scherzo-lilypond ==0.0.0.1,
         base >=4.18 && <4.20,
         hint ^>=0.9.0.8,

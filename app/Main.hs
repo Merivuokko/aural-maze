@@ -7,42 +7,42 @@
 -- Portability : GHC
 module Main (main) where
 
+import Data.Text qualified as T
 import Data.Text.IO qualified as T
-import System.Random (initStdGen)
+import System.Exit
 
 import LambdaSound
+import Language.Haskell.Interpreter
+import System.Random (initStdGen)
 
+import AuralMaze.Config
 import AuralMaze.RandomMusic.Generator
-import AuralMaze.RandomMusic.Parameters
 import AuralMaze.Synthesis.Generator
-import AuralMaze.Synthesis.Parameters
 import Scherzo.Format.LilyPond.Writer
-import Scherzo.Music.Elementary
 
 main :: IO ()
 main = do
-    let musicParams =
-            MusicParams
-                { sequential =
-                    SequentialMusicParams
-                        { lengthRange = Range 3 3
-                        },
-                  note =
-                    NoteParams
-                        { pitchRange =
-                            Range
-                                { min = NotePitch {name = C, octave = 2, alteration = Natural},
-                                  max = NotePitch {name = C, octave = 6, alteration = Natural}
-                                }
-                        }
-                }
-        synthParams =
-            SynthParams
-                { tempoCrotchetsPerMinute = 180,
-                  baseTuning = 442.0
-                }
+    configResult <- runInterpreter $ do
+        loadModules ["config.hs"]
+        modules <- getLoadedModules
+        setTopLevelModules modules
+        interpret "config" (as :: Config)
+    config <- case configResult of
+        Right config -> pure $! config
+        Left err -> do
+            T.putStrLn "Failed to load configuration:"
+            T.putStrLn . hintErrorText $ err
+            exitWith $! ExitFailure 1
     rng <- initStdGen
-    let music = generateMusic musicParams rng
-        sound = generateSignal synthParams music
+    let music = generateMusic config.musicParams rng
+        sound = generateSignal config.synthParams music
     T.putStrLn $! musicToLilyPond music
     play 48000 1.0 sound
+
+hintErrorText :: InterpreterError -> T.Text
+hintErrorText =
+    T.pack . \case
+        UnknownError err -> err
+        WontCompile ghcErr -> unlines $! fmap (.errMsg) ghcErr
+        NotAllowed err -> err
+        GhcException err -> err
