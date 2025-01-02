@@ -1,5 +1,7 @@
 packages: .
-allow-newer: base,bytestring
+allow-newer: base,bytestring,filepath
+
+constraints: file-io +os-string
 
 -- scherzo-core
 source-repository-package
@@ -15,6 +17,7 @@ source-repository-package
   subdir: lilypond
   tag: v0.0.0.1
 
+-- proteaudio
 source-repository-package
   type: git
   location: https://github.com/csabahruska/proteaaudio
